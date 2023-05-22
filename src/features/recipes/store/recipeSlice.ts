@@ -19,6 +19,12 @@ export const recipeSlice = createSlice({
   name: 'recipe',
   initialState,
   reducers: {
+    createRecipe: (state, action: PayloadAction<Recipe>) => {
+      return {
+        ...state,
+        recipes: state.recipes.concat(action.payload),
+      };
+    },
     updateRecipe: (state, action: PayloadAction<Recipe>) => {
       return {
         ...state,
@@ -36,7 +42,7 @@ export const recipeSlice = createSlice({
   },
 });
 
-export const { updateRecipe, deleteRecipe } = recipeSlice.actions;
+export const { updateRecipe, deleteRecipe, createRecipe } = recipeSlice.actions;
 
 export const selectRecipes = (state: RootState) => state.recipe.recipes;
 

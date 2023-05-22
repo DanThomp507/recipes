@@ -76,3 +76,26 @@ export const recipes: Recipe[] = [
     id: 4,
   },
 ];
+
+export const createRecipe: Recipe = {
+  info: {
+    type: 'public',
+    name: 'mocha',
+    status: 'published',
+  },
+  ingredients: [
+    'One espresso shot',
+    '150ml oat milk',
+    'hot chocolate',
+    'whipped cream',
+  ],
+  preparation: [
+    'Pour espresso shot into a mug',
+    'Boil the oat milk',
+    'Pour the oat milk into the mug',
+    'Pour hot chocolate into the mug',
+    'Added whipped cream on top',
+  ],
+  version: 2,
+  id: 5,
+};

@@ -1,16 +1,22 @@
 import { useState } from 'react';
 
 import { useAppSelector, useAppDispatch } from '../../../../app/hooks';
-import { selectRecipes, deleteRecipe } from '../../store/recipeSlice';
+import {
+  selectRecipes,
+  deleteRecipe,
+  createRecipe,
+} from '../../store/recipeSlice';
 import { Recipe } from '../../../../types';
 import RecipeItem from '../RecipeItem';
 import RecipeEditModal from '../RecipeEditModal';
+import { createRecipe as recipeObject } from '../../utils/recipes';
 
 export default function RecipeList() {
   const recipes = useAppSelector(selectRecipes);
   const dispatch = useAppDispatch();
   const [startIndex, setStartIndex] = useState(0);
   const [editRecipe, setEditRecipe] = useState<Recipe | null>(null);
+  const [hasCreated, setHasCreated] = useState(false);
 
   const handleNext = () => {
     setStartIndex((prevIndex) => prevIndex + 2);
@@ -27,6 +33,11 @@ export default function RecipeList() {
     dispatch(deleteRecipe(recipeId));
   };
 
+  const handleCreate = () => {
+    dispatch(createRecipe(recipeObject));
+    setHasCreated(!hasCreated);
+  };
+
   const handleEdit = (recipe: Recipe) => {
     setEditRecipe(recipe);
   };
@@ -37,6 +48,15 @@ export default function RecipeList() {
   return (
     <div className='container mx-auto py-6'>
       <h2 className='text-2xl font-bold mb-4'>Recipes</h2>
+      <button
+        onClick={handleCreate}
+        disabled={hasCreated}
+        className={
+          'bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg my-3'
+        }
+      >
+        Create Recipe
+      </button>
       {displayedRecipes?.length === 0 ? (
         <div>No recipes available.</div>
       ) : (
