@@ -43,8 +43,14 @@ const RecipeEditModal: React.FC<RecipeEditModalProps> = ({
         <h2 className='text-2xl font-bold mb-4 text-black'>Edit Recipe</h2>
         <form>
           <div className='mb-4'>
-            <label className='block font-semibold text-black'>Name:</label>
+            <label
+              htmlFor='recipe-name'
+              className='block font-semibold text-black'
+            >
+              Name:
+            </label>
             <input
+              id='recipe-name'
               type='text'
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -52,20 +58,28 @@ const RecipeEditModal: React.FC<RecipeEditModalProps> = ({
             />
           </div>
           <div className='mb-4'>
-            <label className='block font-semibold text-black'>
+            <label
+              htmlFor='recipe-ingredients'
+              className='block font-semibold text-black'
+            >
               Ingredients:
             </label>
             <textarea
+              id='recipe-ingredients'
               value={ingredients}
               onChange={(e) => setIngredients(e.target.value)}
               className='border border-gray-300 rounded p-2 w-full text-black'
             />
           </div>
           <div className='mb-4'>
-            <label className='block font-semibold text-black'>
+            <label
+              htmlFor='recipe-preparation'
+              className='block font-semibold text-black'
+            >
               Preparation:
             </label>
             <textarea
+              id='recipe-recipe-preparation'
               value={preparation}
               onChange={(e) => setPreparation(e.target.value)}
               className='border border-gray-300 rounded p-2 w-full text-black'
