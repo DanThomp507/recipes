@@ -24,8 +24,6 @@ export default function RecipeList() {
     setEditRecipe(null);
   };
   const handleDelete = (recipeId: number) => {
-    console.log('here we go');
-    console.log(recipeId);
     dispatch(deleteRecipe(recipeId));
   };
 

@@ -20,7 +20,6 @@ export const recipeSlice = createSlice({
   initialState,
   reducers: {
     updateRecipe: (state, action: PayloadAction<Recipe>) => {
-      console.log(action.payload);
       return {
         ...state,
         recipes: state.recipes.map((recipe) => {
@@ -29,7 +28,6 @@ export const recipeSlice = createSlice({
       };
     },
     deleteRecipe: (state, action: PayloadAction<number>) => {
-      console.log(action.payload);
       return {
         ...state,
         recipes: state.recipes.filter((recipe) => recipe.id !== action.payload),

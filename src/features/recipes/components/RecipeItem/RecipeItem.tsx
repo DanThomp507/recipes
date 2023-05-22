@@ -14,19 +14,19 @@ const RecipeItem: React.FC<RecipeItemProps> = ({
 }) => {
   return (
     <div className='bg-white shadow-md p-4 rounded-lg mb-4 w-[80%]'>
-      <h3 className='text-xl font-bold mb-2'>
+      <h3 className='text-xl font-bold mb-2 text-black'>
         {recipe.info.name || 'Untitled'}
       </h3>
-      <p className='mb-2'>
+      <p className='mb-2 text-black'>
         Ingredients:{' '}
         {recipe.ingredients.length ? (
           recipe.ingredients.join(', ')
         ) : (
-          <div>No ingredients - add some!</div>
+          <div className='text-black'>No ingredients - add some!</div>
         )}
       </p>
-      <p className='mb-2'>Instructions:</p>
-      <ul className='list-disc list-inside'>
+      <p className='mb-2 text-black'>Instructions:</p>
+      <ul className='list-disc list-inside text-black'>
         {recipe?.preparation.length ? (
           recipe.preparation.map((step, index) => <li key={index}>{step}</li>)
         ) : (
@@ -41,6 +41,7 @@ const RecipeItem: React.FC<RecipeItemProps> = ({
           Delete
         </button>
         <button
+          data-testid={`${recipe.id}-button`}
           onClick={onEdit}
           className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-3'
         >
