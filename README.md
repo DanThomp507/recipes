@@ -22,7 +22,7 @@ This is a simple recipe app built with React and Redux. It allows users to view 
 
 ## Time Spent on App
 
-I'd say I spent somewhere between 3-4 hours building this. Most of that time was debating best approaches for making sure Redux state was persistent.
+I'd say I spent somewhere between 3-4 hours building this. A chunk of that time was spent refactoring some of my Redux code, as I wanted to ensure that my state management was as clean as possible. It didn't take too long to build out the UI components and set everything else up, though.
 
 ## Issues Encountered
 
